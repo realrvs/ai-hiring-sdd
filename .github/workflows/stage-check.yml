@@ -1,0 +1,48 @@
+name: Stage Check
+
+on:
+  pull_request:
+    types: [opened, labeled, unlabeled, synchronize]
+
+jobs:
+  check-stage-label:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Проверка метки stage:*
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const labels = context.payload.pull_request.labels.map(l => l.name);
+            const stageLabels = labels.filter(l => l.startsWith('stage:'));
+            if (stageLabels.length === 0) {
+              core.setFailed('PR должен иметь метку stage:* (proposal, specs, design, adr, api-contract, tasks, apply)');
+            }
+            if (stageLabels.length > 1) {
+              core.setFailed('PR должен иметь ровно одну метку stage:*');
+            }
+
+  check-review-labels:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Проверка needs-*-review
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const labels = context.payload.pull_request.labels.map(l => l.name);
+            const needsReview = labels.filter(l => l.startsWith('needs-') && l.endsWith('-review'));
+            if (needsReview.length > 0) {
+              core.warning('PR имеет незакрытые ревью: ' + needsReview.join(', '));
+            }
+
+  check-back-propagation:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Проверка back-propagation
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const body = context.payload.pull_request.body || '';
+            const hasBackProp = body.includes('Back-propagation');
+            if (!hasBackProp) {
+              core.warning('PR не содержит секцию Back-propagation');
+            }

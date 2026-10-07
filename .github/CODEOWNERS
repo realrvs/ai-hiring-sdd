@@ -1,0 +1,35 @@
+# CODEOWNERS - кто владеет какими артефактами
+# Документация: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# --- Process (владелец: Process Owner) ---
+docs/process/                    @process-owner
+
+# --- Proposal (владелец: Product Owner) ---
+docs/proposal/                   @product-owner
+
+# --- Specs (владелец: Аналитик) ---
+docs/specs/                      @analyst-team
+docs/specs/templates/            @analyst-team @process-owner
+
+# --- Design (владелец: Архитектор; UX-дерево: Дизайнер) ---
+docs/design/                     @arch-team
+docs/design/ux/                  @design-team
+
+# --- ADR (владелец: Архитектор) ---
+docs/adr/                        @arch-team
+docs/adr/templates/              @arch-team @process-owner
+
+# --- API-contract (владелец: Архитектор) ---
+docs/api-contract/               @arch-team
+
+# --- Tasks (владелец: Тимлид) ---
+docs/tasks/                      @lead-team
+
+# --- Apply / код (владелец: Разработчики) ---
+agents/                          @dev-team
+infra/                           @dev-team
+scripts/                         @dev-team
+hiring/                          @dev-team
+
+# --- .github (владелец: Process Owner) ---
+.github/                         @process-owner
