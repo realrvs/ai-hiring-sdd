@@ -1,3 +1,7 @@
+![Status](https://img.shields.io/badge/status-production--ready-green)
+![Compliance](https://img.shields.io/badge/152--ФЗ-compliant-blue)
+![SDD](https://img.shields.io/badge/process-SDD-purple)
+![License](https://img.shields.io/badge/license-MIT-yellow)
 # AI Hiring Blueprint
 
 Корпоративный стандарт автоматизации найма с AI-усилением через три фазы зрелости.
