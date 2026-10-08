@@ -25,3 +25,10 @@
 - 152-ФЗ, GDPR Art. 17
 - Two-Way Masking (Token Vault, AES-256)
 - Consent & Retention Layer
+
+## Визуальные артефакты
+
+- **Диаграммы (Mermaid):** в `docs/design/DES-*.md` (архитектура, sequence, flowchart).
+- **UI-макеты:** `docs/design/DESIGN-BRIEF-*.md` + референсы в `docs/design/assets/`.
+- **Правило:** макеты согласуются с HRD/DPO до утверждения API-контракта.
+- **См. также:** ADR-008.
